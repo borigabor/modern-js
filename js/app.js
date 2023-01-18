@@ -251,3 +251,75 @@ function parosVagyParatlanES6(teszt, ...szamok) {
 }
 
 parosVagyParatlanES6(1, 2, 3);
+
+///////////////////////////////////////////////////////////////////////
+// Default paraméterek
+
+// ES5
+
+function AdamsFamily(keresztNev, szuletesiEv, csaladiNev) {
+    csaladiNev === undefined ? csaladiNev = 'Adams' : csaladiNev = csaladiNev;
+    this.keresztNev = keresztNev;
+    this.szuletesiEv = szuletesiEv;
+    this.csaladiNev = csaladiNev;
+}
+
+/*var fester = new AdamsFamily('Fester', 1940);
+var mortisha = new AdamsFamily('Mortisha', 1965);
+var kuzin = new AdamsFamily('Kuzin', 1800, 'Hogyishivják');*/
+
+// ES6
+
+function AdamsFamily(keresztNev, szuletesiEv, csaladiNev = 'Adams') {
+    this.keresztNev = keresztNev;
+    this.szuletesiEv = szuletesiEv;
+    this.csaladiNev = csaladiNev;
+}
+
+var fester = new AdamsFamily('Fester', 1940);
+var mortisha = new AdamsFamily('Mortisha', 1965);
+var kuzin = new AdamsFamily('Kuzin', 1800, 'Hogyishivják');
+
+///////////////////////////////////////////////////////
+// Map
+
+const kerdes = new Map(); // létrejött egy üres adatszerkezet a feltöltéshez peddig a set-et használjuk
+
+kerdes.set('kerdes', 'Hogy hívják a de miéért reklámban szereplő kisfiút?');
+kerdes.set(1, 'Ödön');
+kerdes.set(2, 'Ábel');
+kerdes.set(3, 'Miklóska');
+kerdes.set(4, 'Nándi');
+
+kerdes.set('helyes', 2);
+
+kerdes.set(true, 'helyes válasz');
+kerdes.set(false, 'nem talált');
+
+console.log(kerdes.get('kerdes'));
+console.log(kerdes.size);
+
+/*
+if(kerdes.has(4)) {
+    kerdes.delete(4);
+}
+
+
+//kerdes.clear(); */
+
+//kerdes.forEach((kulcs, ertek) => console.log(`Kulcs: ${kulcs}, érték: ${ertek}`));
+
+/*
+for(let [kulcs, ertek] of kerdes.entries()) {
+    if(typeof(kulcs) === 'number') {
+        console.log(`Kulcs: ${kulcs}, érték: ${ertek}`);
+    }
+    
+}
+*/
+
+const valasz = parseInt(prompt('Add meg a helyes választ'));
+
+
+
+console.log(kerdes.get(valasz === kerdes.get('helyes')));
