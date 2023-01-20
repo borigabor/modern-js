@@ -435,3 +435,4 @@ class KatonaES6 extends SzemelyES6 {
 const nandiKatona = new KatonaES6('Nándi', 1960, 'tanár', 'tiszt', 'harcosok');
 nandiKatona.rangSzerzes('százados');
 nandiKatona.korSzamitas();
+
